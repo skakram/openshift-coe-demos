@@ -1,0 +1,80 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: StorageProfile
+metadata:
+  creationTimestamp: '2025-07-29T12:14:40Z'
+  generation: 8
+  labels:
+    app: containerized-data-importer
+    app.kubernetes.io/component: storage
+    app.kubernetes.io/managed-by: cdi-controller
+    app.kubernetes.io/part-of: hyperconverged-cluster
+    app.kubernetes.io/version: 4.18.29
+    cdi.kubevirt.io: ''
+  managedFields:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:cloneStrategy': {}
+          'f:snapshotClass': {}
+        'f:status':
+          'f:snapshotClass': {}
+      manager: kubectl-edit
+      operation: Update
+      time: '2025-08-11T08:56:09Z'
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.kubernetes.io/version': {}
+            'f:cdi.kubevirt.io': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"c9b2bdb4-9d79-4398-8288-823a0f749c3e"}': {}
+        'f:spec': {}
+        'f:status':
+          .: {}
+          'f:claimPropertySets': {}
+          'f:cloneStrategy': {}
+          'f:dataImportCronSourceFormat': {}
+          'f:provisioner': {}
+          'f:storageClass': {}
+      manager: virt-cdi-controller
+      operation: Update
+      time: '2026-02-17T15:56:33Z'
+  name: sc-gold-stretched
+  ownerReferences:
+    - apiVersion: cdi.kubevirt.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: CDI
+      name: cdi-kubevirt-hyperconverged
+      uid: c9b2bdb4-9d79-4398-8288-823a0f749c3e
+  resourceVersion: '2428219680'
+  uid: 3c19c931-eb40-42fa-b79f-3615143f8ae3
+spec:
+  cloneStrategy: copy
+  snapshotClass: snapshotclass-stretched-dc1-gold
+status:
+  claimPropertySets:
+    - accessModes:
+        - ReadWriteMany
+      volumeMode: Block
+    - accessModes:
+        - ReadWriteOnce
+      volumeMode: Block
+    - accessModes:
+        - ReadWriteOnce
+      volumeMode: Filesystem
+  cloneStrategy: copy
+  dataImportCronSourceFormat: pvc
+  provisioner: hspc.csi.hitachi.com
+  snapshotClass: snapshotclass-stretched-dc1-gold
+  storageClass: sc-gold-stretched
+ 
